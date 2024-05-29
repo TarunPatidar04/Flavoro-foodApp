@@ -12,7 +12,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/success" element={<Success />} />
           <Route path="*" element={<Error />} />
-
         </Routes>
       </Router>
     </div>
