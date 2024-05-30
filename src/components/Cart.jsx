@@ -1,8 +1,10 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import ItemCard from './ItemCard';
-
+import { useSelector } from "react-redux";
 const Cart = () => {
+  const cartItems = useSelector((state) => state.cart.cart);
+  console.log(cartItems)
   return (
     <>
       <div className="fixed right-0 top-0 w-full lg:w-[20vw] h-full bg-white  p-5">
