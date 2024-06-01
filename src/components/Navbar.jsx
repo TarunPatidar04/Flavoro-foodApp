@@ -10,16 +10,6 @@ const Navbar = () => {
           </h4>
           <h1 className="text-2xl font-bold">Flavoro Foods</h1>
         </div>
-        <div>
-          <input
-            type="search"
-            name="search"
-            id=""
-            placeholder="Search here"
-            autoComplete="off"
-            className="p-3 border border-gray-400 text-sm rounded-lg outline-none w-full lg:w-[25vw]"
-          />
-        </div>
       </nav>
     </>
   );
