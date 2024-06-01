@@ -2,7 +2,11 @@ import React from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../redux/slices/CartSlice";
+import {
+  DecrementQty,
+  IncrementQty,
+  removeFromCart,
+} from "../redux/slices/CartSlice";
 const ItemCard = ({ id, name, price, quantity, rating, image }) => {
   const dispatch = useDispatch();
   return (
@@ -11,9 +15,7 @@ const ItemCard = ({ id, name, price, quantity, rating, image }) => {
         <MdDelete
           className="absolute  right-7 text-gray-600 cursor-pointer"
           onClick={() => {
-            dispatch(
-              removeFromCart({ id, name, price, quantity, image })
-            );
+            dispatch(removeFromCart({ id, name, price, quantity, image }));
           }}
         />
         <div>
@@ -28,9 +30,19 @@ const ItemCard = ({ id, name, price, quantity, rating, image }) => {
           <div className="flex justify-between">
             <span className="text-green-500 font-bold">₹{price}</span>
             <div className="flex justify-center items-center gap-1 absolute right-7">
-              <AiOutlinePlus className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer" />
+              <AiOutlineMinus
+                className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer"
+                onClick={() => {
+                  dispatch(DecrementQty({ id }));
+                }}
+              />
               <span>{quantity}</span>
-              <AiOutlineMinus className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer" />
+              <AiOutlinePlus
+                className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer"
+                onClick={() => {
+                  dispatch(IncrementQty({ id }));
+                }}
+              />
             </div>
           </div>
         </div>
