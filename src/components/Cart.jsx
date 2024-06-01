@@ -11,6 +11,10 @@ const Cart = () => {
     (totalQty, item) => totalQty + item.quantity,
     0
   );
+  const totalPrice = cartItems.reduce(
+    (totalPrice, item) => totalPrice + item.price * item.quantity,
+    0
+  );
   return (
     <>
       <div
@@ -57,7 +61,9 @@ const Cart = () => {
           <h3 className="font-semibold text-gray-800">
             Items :{totalQuantity}
           </h3>
-          <h3 className="font-semibold text-gray-800">Total Amount : </h3>
+          <h3 className="font-semibold text-gray-800">
+            Total Amount : {totalPrice}
+          </h3>
           <hr className="w-[90vw] lg:w-[18vw] my-2 " />
           <button className="bg-green-500 font-bold px-3 py-2 rounded-lg text-white w-[90vw] lg:w-[18vw]  mb-5">
             Check Out
