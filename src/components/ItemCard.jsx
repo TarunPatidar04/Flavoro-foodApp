@@ -7,6 +7,7 @@ import {
   IncrementQty,
   removeFromCart,
 } from "../redux/slices/CartSlice";
+import toast from "react-hot-toast";
 const ItemCard = ({ id, name, price, quantity, rating, image }) => {
   const dispatch = useDispatch();
   return (
@@ -16,6 +17,7 @@ const ItemCard = ({ id, name, price, quantity, rating, image }) => {
           className="absolute  right-7 text-gray-600 cursor-pointer"
           onClick={() => {
             dispatch(removeFromCart({ id, name, price, quantity, image }));
+           toast.success("Remove Item")
           }}
         />
         <div>
