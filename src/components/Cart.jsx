@@ -30,18 +30,24 @@ const Cart = () => {
         </div>
 
         <div>
-          {cartItems.map((food) => {
-            return (
-              <ItemCard
-                key={food.id}
-                id={food.id}
-                name={food.name}
-                price={food.price}
-                image={food.image}
-                quantity={food.quantity}
-              />
-            );
-          })}
+          {cartItems.length > 0 ? (
+            cartItems.map((food) => {
+              return (
+                <ItemCard
+                  key={food.id}
+                  id={food.id}
+                  name={food.name}
+                  price={food.price}
+                  image={food.image}
+                  quantity={food.quantity}
+                />
+              );
+            })
+          ) : (
+            <h2 className="text-center text-xl font-bold text-gray-800">
+              Your Card is Empty
+            </h2>
+          )}
         </div>
 
         <div className="absolute bottom-0">

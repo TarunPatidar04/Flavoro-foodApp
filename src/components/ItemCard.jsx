@@ -29,7 +29,7 @@ const ItemCard = ({ id, name, price, quantity, rating, image }) => {
             <span className="text-green-500 font-bold">₹{price}</span>
             <div className="flex justify-center items-center gap-1 absolute right-7">
               <AiOutlinePlus className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer" />
-              <span>1</span>
+              <span>{quantity}</span>
               <AiOutlineMinus className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all duration-200 ease-linear cursor-pointer" />
             </div>
           </div>
